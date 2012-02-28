@@ -1,0 +1,75 @@
+
+/**
+* Overide these in your theme
+*/
+
+
+.shiny-button {
+
+  border: solid thin #bfbfbf;
+  -webkit-border-radius: .4em;
+  -moz-border-radius: .4em;
+  border-radius: .4em;
+  -webkit-box-shadow: 2px 2px 3px #999; 
+  box-shadow: 2px 2px 2px #bbb;
+  background-color: #eee;
+  background-image: linear-gradient(bottom, rgb(209,209,209) 8%, rgb(240,240,240) 47%);
+  background-image: -o-linear-gradient(bottom, rgb(209,209,209) 8%, rgb(240,240,240) 47%);
+  background-image: -moz-linear-gradient(bottom, rgb(209,209,209) 8%, rgb(240,240,240) 47%);
+  background-image: -webkit-linear-gradient(bottom, rgb(209,209,209) 8%, rgb(240,240,240) 47%);
+  background-image: -ms-linear-gradient(bottom, rgb(209,209,209) 8%, rgb(240,240,240) 47%);
+
+  background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0.08, rgb(209,209,209)),
+    color-stop(0.47, rgb(240,240,240))
+    );
+}
+
+.shiny-button {
+  behavior: url(/css/border-radius.htc);
+  border-radius: .4em;
+}
+
+.bluebook-campaign-cta {
+  z-index:1000;
+  position:relative;
+  
+  left:700px;
+  top:300px;
+
+}
+
+.bluebook-campaign-cta h3 a {
+  font-size: 1.1em;
+  text-transform: uppercase
+}
+
+/**
+* modal http://www.queness.com/post/77/simple-jquery-modal-window-tutorial
+*/
+/* Z-index of #mask must lower than #boxes .window */
+#mask {
+  position:absolute;
+  z-index:9000;
+  background-color:#000;
+  display:none;
+}
+   
+.bluebook-campaign-cta-modal #boxes .window {
+  position:absolute;
+  width:440px;
+  height:200px;
+  display:none;
+  z-index:9999;
+  padding:20px;
+}
+ 
+ 
+/* Customize your modal window here, you can add background image too */
+.bluebook-campaign-cta-modal {
+  width:375px; 
+  height:203px;
+}
