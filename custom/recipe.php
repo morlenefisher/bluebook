@@ -79,7 +79,8 @@ $labels = array(
     'update_item' => __('Update Cuisine'),
     'add_new_item' => __('Add New Cuisine'),
     'new_item_name' => __('New Cuisine Name'),
-);register_taxonomy('cuisine', 'bluebook-recipe', array( 'hierarchical' => false, 'labels' => $labels, 'query_var' => true, 'rewrite' => true ));
+);
+register_taxonomy('cuisine', 'bluebook-recipe', array( 'hierarchical' => false, 'labels' => $labels, 'query_var' => true, 'rewrite' => true ));
 
 
 /**

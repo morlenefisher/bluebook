@@ -32,7 +32,7 @@
    */
   public function getCustomPostTypes() {
 
-    $cpt_files = list_files(BLUEBOOK_CUSTOM);
+    $cpt_files = $this->getFiles(BLUEBOOK_CUSTOM);
 
     foreach ($cpt_files as $k => $fn) {
       $file = str_replace('.php', '', array_pop(explode('/', $fn)));
@@ -43,6 +43,32 @@
     return $cpt;
   }
 
+  
+  public function getFiles($folder = '') {
+    if ( empty($folder) )
+		return false;
+
+
+	$files = array();
+	if ( $dir = @opendir( $folder ) ) {
+		while (($file = readdir( $dir ) ) !== false ) {
+			if ( in_array($file, array('.', '..') ) )
+				continue;
+			if ( is_dir( $folder . '/' . $file ) ) {
+				$files2 = $this->getFiles( $folder . '/' . $file);
+				if ( $files2 )
+					$files = array_merge($files, $files2 );
+				else
+					$files[] = $folder . '/' . $file . '/';
+			} else {
+				$files[] = $folder . '/' . $file;
+			}
+		}
+	}
+	@closedir( $dir );
+	return $files;
+
+  }
 }
 
 ?>

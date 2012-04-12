@@ -4,11 +4,11 @@
   Plugin Name: Blue Book
   Plugin URI: http://impressivemedia.co.uk/wordpress-plugins/bluebook
   Description:  Adds numerous bits to make your Wordpress site your own
-  Version: 0.2
+  Version: 0.2.1
   Author: Morlene Fisher
   Author URI: http://digital.ashleylawrence.com/author/morlene-fisher
  */
-/*  Copyright 2011  Morlene Fisher  (email : digital@ashleylawrence.com)
+/*  Copyright 2011  Ashley Lawrence Ltd.  (email : digital@ashleylawrence.com)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License, version 2, as 
@@ -44,16 +44,15 @@ require_once(BLUEBOOK_CLASSES . 'bb.php');
 include_once plugin_dir_path(__FILE__) . '/classes/widgets.php';
 include_once plugin_dir_path(__FILE__) . '/classes/settings.php';
 
-//$settings = new BlueBookSettings();
-//$settings->addOption('bluebook-types', $settings->getCustomPostTypes());
+$settings = new BlueBookSettings();
 
 /**
  * Actions
  */
 add_action('login_head', 'bluebook_custom_login_logo');
 add_action('init', 'bluebook_register_custom_post_types');
-add_action("plugins_loaded", array( new BluebookRelatedPostsWidget('Blue Book Related Posts'), 'register' ));
-add_action('wp_loaded', new BlueBookSettings);
+//add_action("plugins_loaded", array( new BluebookRelatedPostsWidget('Blue Book Related Posts'), 'register' ));
+//add_action('wp_loaded', new BlueBookSettings);
 
 
 
@@ -145,34 +144,12 @@ function bluebook_register_custom_post_types() {
   include_once BLUEBOOK_CUSTOM . 'campaign.php';
   $campaign = new BlueBookCampaign();
   include_once BLUEBOOK_CUSTOM . 'gallery.php';
-  include_once BLUEBOOK_CUSTOM . 'recipe.php';
+ // include_once BLUEBOOK_CUSTOM . 'recipe.php';
   include_once BLUEBOOK_CUSTOM . 'property.php';
+  $property = new BlueBookProperty();
 }
 
 
-
-
-
-
-/**
- * Registers our settings groups
-
-function bluebook_register_settings() {
-  register_setting('bluebook-settings-group', 'bluebook-custom-types');
-}
- */
-/**
- * Returns an array of custom post type names
- * @return array
- */
-
-/**
- * Displays our settings page
- */
-function bluebook_settings_page() {
-  $custom_post_types = bluebook_get_custom_post_types();
-  include 'views/bb_admin_options.php';
-}
 
 /**
  * Adds a new gravatar to the list of existing ones that represents more your

@@ -91,10 +91,12 @@ class BlueBookMeta extends BlueBook {
    * @param string $name the name of the field
    * @param string $id the id of the field
    * @param string $type the input element type e.g. text, radio, checkbox etc
+   * @param string $description 
    * @param string $std sample or default values
    * @param array $attrs Extra attributes like classes, onclicks etc
+   * @param array $options options array for selects and alike
    */
-  public function createField($name, $id, $type, $description = '', $std = null, $attrs = array( )) {
+  public function createField($name, $id, $type, $description = '', $std = null, $attrs = array( ), $options = array()) {
 
     if ($attrs) {
       // walk through and clean these please
@@ -107,6 +109,7 @@ class BlueBookMeta extends BlueBook {
         'type' => $type,
         'description' => $description,
         'std' => $std,
+        'options' => $options,
         'attr' => $attributes );
   }
 

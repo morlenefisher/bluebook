@@ -4,6 +4,7 @@
   <form method="post" action="options.php" name="bluebook-posttypes">
     <?php settings_fields('bluebook-settings-group'); ?>
     <?php do_settings_sections('bluebook'); ?>
+   
     <?php p($available);
     p($options) ?>
 
